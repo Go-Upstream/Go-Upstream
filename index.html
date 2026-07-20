@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Go Upstream AB — Technology Investments</title>
+<title>Go Upstream AB — Founder support &amp; angel investments</title>
 <meta name="description" content="Go Upstream AB, founded by George Brontén, helps entrepreneurs on their journey — as a thinking partner, and sometimes as an angel investor — with a focus on technology and SaaS.">
 
 <!-- ============================================================
@@ -164,10 +164,57 @@
   }
   .criteria li strong{ color:var(--text); display:block; margin-bottom:4px; font-weight:600; }
 
-  /* ---------- privacy ---------- */
-  .privacy p, .privacy li{ font-size:.88rem; color:var(--text-dim); max-width:66ch; }
-  .privacy ul{ margin:14px 0 0 20px; display:grid; gap:8px; }
-  .privacy h2{ font-size:1.15rem; }
+  /* ---------- privacy popup ---------- */
+  dialog#privacy-modal{
+    /* margin:auto centers the popup both horizontally and vertically */
+    margin:auto;
+    background:var(--bg-raise); color:var(--text);
+    border:1px solid var(--line); border-radius:12px; padding:0;
+    max-width:640px; width:calc(100% - 32px); max-height:82vh; overflow:auto;
+    /* closed state — also the state it animates from and back to */
+    opacity:0; transform:translateY(10px) scale(.985);
+    transition:opacity .2s ease, transform .2s ease,
+               overlay .2s allow-discrete, display .2s allow-discrete;
+  }
+  dialog#privacy-modal[open]{ opacity:1; transform:translateY(0) scale(1); }
+  @starting-style{
+    dialog#privacy-modal[open]{ opacity:0; transform:translateY(10px) scale(.985); }
+  }
+  dialog#privacy-modal::backdrop{
+    background:rgba(0,0,0,0);
+    transition:background .2s ease, overlay .2s allow-discrete, display .2s allow-discrete;
+  }
+  dialog#privacy-modal[open]::backdrop{ background:rgba(0,0,0,.62); }
+  @starting-style{
+    dialog#privacy-modal[open]::backdrop{ background:rgba(0,0,0,0); }
+  }
+  @media (prefers-reduced-motion:reduce){
+    dialog#privacy-modal,
+    dialog#privacy-modal::backdrop{ transition:none; }
+  }
+  .modal-inner{ padding:30px 30px 28px; }
+  .modal-head{
+    display:flex; align-items:flex-start; justify-content:space-between;
+    gap:20px; margin-bottom:16px;
+  }
+  .modal-head h2{
+    font-family:'Space Grotesk', sans-serif; font-size:1.25rem; font-weight:600; margin:0;
+  }
+  .modal-close{
+    background:none; border:1px solid var(--line); color:var(--text-dim);
+    border-radius:6px; width:32px; height:32px; flex-shrink:0;
+    font-size:1.2rem; line-height:1; cursor:pointer;
+  }
+  .modal-close:hover{ color:var(--text); border-color:var(--accent); }
+  .modal-close:focus-visible{ outline:2px solid var(--accent); outline-offset:2px; }
+  dialog#privacy-modal p, dialog#privacy-modal li{ font-size:.88rem; color:var(--text-dim); }
+  dialog#privacy-modal ul{ margin:14px 0 0 20px; display:grid; gap:8px; }
+  .footer-link{
+    background:none; border:none; padding:0; cursor:pointer;
+    font:inherit; color:var(--text-dim); text-decoration:underline;
+  }
+  .footer-link:hover{ color:var(--text); }
+  .footer-link:focus-visible{ outline:2px solid var(--accent); outline-offset:2px; }
 
   /* ---------- contact / footer ---------- */
   .contact-box{
@@ -345,13 +392,25 @@
   </div>
 </section>
 
-<!-- ▼ PRIVACY — kort integritetspolicy. Uppdatera om du senare lägger
-     till formulär, analysverktyg eller cookies (då krävs mer, t.ex. samtycke). -->
-<section id="privacy" class="privacy">
-  <div class="wrap">
-    <div class="sec-label">Privacy</div>
-    <h2>Privacy &amp; cookies</h2>
-    <p>
+<footer>
+  <div class="wrap" style="display:flex; flex-wrap:wrap; gap:10px 30px;">
+    <span>© 2026 Go Upstream AB. All rights reserved.</span>
+    <!-- ▼ Fyll i org.nr och adress om du vill -->
+    <span>Stockholm, Sweden</span>
+    <button type="button" class="footer-link" onclick="document.getElementById('privacy-modal').showModal()">Privacy &amp; cookies</button>
+  </div>
+</footer>
+
+<!-- ▼ PRIVACY — visas som popup när man klickar på länken i sidfoten.
+     Uppdatera texten här om du senare lägger till formulär, analysverktyg
+     eller cookies (då krävs mer, t.ex. samtyckesbanner). -->
+<dialog id="privacy-modal" aria-labelledby="privacy-title">
+  <div class="modal-inner">
+    <div class="modal-head">
+      <h2 id="privacy-title">Privacy &amp; cookies</h2>
+      <button type="button" class="modal-close" aria-label="Close" onclick="document.getElementById('privacy-modal').close()">&times;</button>
+    </div>
+<p>
       This website does not use cookies, and we do not track you. There are no
       analytics, no ad networks, and no contact forms collecting your data. That said,
       in the interest of full transparency:
@@ -368,16 +427,15 @@
       right to lodge a complaint with the Swedish Authority for Privacy Protection (IMY).
     </p>
   </div>
-</section>
+</dialog>
 
-<footer>
-  <div class="wrap" style="display:flex; flex-wrap:wrap; gap:10px 30px;">
-    <span>© 2026 Go Upstream AB. All rights reserved.</span>
-    <!-- ▼ Fyll i org.nr och adress om du vill -->
-    <span>Stockholm, Sweden</span>
-    <a href="#privacy" style="color:var(--text-dim);">Privacy &amp; cookies</a>
-  </div>
-</footer>
+<script>
+  // Stäng popupen när man klickar utanför rutan
+  (function(){
+    var d = document.getElementById('privacy-modal');
+    d.addEventListener('click', function(e){ if (e.target === d) d.close(); });
+  })();
+</script>
 
 </body>
 </html>
