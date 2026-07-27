@@ -80,7 +80,8 @@
   --gu-radius: 0;
 
   --gu-gutter: 56px;
-  --gu-max: 1180px;
+  --gu-max: 1040px;      /* content measure, centred in every section */
+  --gu-max-bar: 1152px;  /* header/footer bars — 1040 + two 56px gutters */
 }
 
 /* ---------------------------------------------------------------
@@ -103,7 +104,8 @@ a{ color:var(--gu-gold); text-decoration:none; transition:color .12s linear; }
 a:hover{ color:var(--gu-gold-hover); text-decoration:underline; }
 a:focus-visible,button:focus-visible{ outline:2px solid var(--gu-gold); outline-offset:3px; }
 
-.wrap{ max-width:var(--gu-max); }
+/* Every section's content container: 1040px, centred */
+.wrap{ max-width:var(--gu-max); margin-inline:auto; width:100%; }
 
 /* Sections: 96px vertical, 1px rule between every block */
 .section{ padding:96px var(--gu-gutter); border-bottom:1px solid var(--gu-line); scroll-margin-top:72px; }
@@ -123,7 +125,7 @@ a:focus-visible,button:focus-visible{ outline:2px solid var(--gu-gold); outline-
 }
 .h2{ font-size:44px; line-height:1.05; letter-spacing:-.035em; font-weight:600; }
 .h3{ font-size:24px; line-height:1.25; letter-spacing:-.02em; font-weight:600; }
-.lead{ font-size:20px; line-height:1.55; color:var(--gu-body); max-width:var(--gu-measure); text-wrap:pretty; }
+.lead{ font-size:20px; line-height:1.55; color:var(--gu-body); text-wrap:pretty; }
 .body{ font-size:17px; line-height:1.6; color:var(--gu-body); text-wrap:pretty; }
 .body--measure{ max-width:var(--gu-measure); }
 .small{ font-size:16px; line-height:1.6; color:var(--gu-body); text-wrap:pretty; }
@@ -146,13 +148,17 @@ a:focus-visible,button:focus-visible{ outline:2px solid var(--gu-gold); outline-
 /* ---------------------------------------------------------------
    Header — sticky, translucent
    --------------------------------------------------------------- */
+/* The bar is full-bleed; the row inside it aligns with the sections */
 .header{
   position:sticky; top:0; z-index:10;
-  display:flex; justify-content:space-between; align-items:center;
-  padding:20px var(--gu-gutter);
   background:rgba(25,22,18,.92);
   backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px);
   border-bottom:1px solid var(--gu-line);
+}
+.header-inner{
+  max-width:var(--gu-max-bar); margin-inline:auto; width:100%;
+  display:flex; justify-content:space-between; align-items:center;
+  padding:20px var(--gu-gutter);
 }
 .header .wordmark{ font-size:19px; }
 .nav{
@@ -171,7 +177,7 @@ a:focus-visible,button:focus-visible{ outline:2px solid var(--gu-gold); outline-
 .hero .wrap{ display:flex; flex-direction:column; gap:26px; }
 .hero h1{
   font-size:clamp(40px,8.4vw,84px); line-height:1;
-  letter-spacing:-.04em; font-weight:600; max-width:20ch;
+  letter-spacing:-.04em; font-weight:600; max-width:26ch;
 }
 
 /* ---------------------------------------------------------------
@@ -194,7 +200,7 @@ a:focus-visible,button:focus-visible{ outline:2px solid var(--gu-gold); outline-
    --------------------------------------------------------------- */
 .about .wrap{ display:flex; flex-direction:column; gap:32px; }
 .sec-head{ display:flex; flex-direction:column; gap:14px; }
-.about-cols{ display:grid; grid-template-columns:1fr 1fr; gap:48px; max-width:1000px; }
+.about-cols{ display:grid; grid-template-columns:1fr 1fr; gap:48px; }
 .stats{
   display:grid; grid-template-columns:repeat(4,1fr);
   column-gap:48px; row-gap:26px;
@@ -243,9 +249,12 @@ a:focus-visible,button:focus-visible{ outline:2px solid var(--gu-gold); outline-
    --------------------------------------------------------------- */
 .quote{ padding:0; border-bottom:1px solid var(--gu-line); }
 .quote-inner{
-  display:flex; flex-direction:column; gap:14px;
   background:var(--gu-gold); color:var(--gu-ink);
   padding:72px var(--gu-gutter);
+}
+.quote-content{
+  max-width:var(--gu-max); margin-inline:auto; width:100%;
+  display:flex; flex-direction:column; gap:14px;
 }
 .quote-line{ font-size:46px; line-height:1.1; letter-spacing:-.04em; font-weight:600; max-width:24ch; }
 .quote-attr{
@@ -258,17 +267,9 @@ a:focus-visible,button:focus-visible{ outline:2px solid var(--gu-gold); outline-
    --------------------------------------------------------------- */
 .founder .wrap{ display:grid; grid-template-columns:360px 1fr; gap:56px; align-items:start; }
 .founder-aside{ display:flex; flex-direction:column; gap:16px; }
+/* No background behind the portrait — the PNG is transparent and the
+   page's ink must show through. Never put a tint or border here. */
 .portrait{ width:360px; max-width:100%; height:440px; object-fit:cover; }
-/* Placeholder box — delete along with the block it wraps once the real photo lands */
-.portrait-placeholder{
-  width:360px; max-width:100%; height:440px;
-  display:flex; flex-direction:column; justify-content:flex-end; gap:8px;
-  background:var(--gu-surface); border:1px dashed var(--gu-border); padding:20px;
-}
-.portrait-placeholder span{
-  font-family:var(--gu-mono); font-size:11px; line-height:1.6;
-  letter-spacing:.14em; text-transform:uppercase; color:var(--gu-muted);
-}
 .founder-name{ font-size:18px; font-weight:600; }
 .founder-main{ display:flex; flex-direction:column; gap:20px; }
 .founder-links{
@@ -298,10 +299,12 @@ a:focus-visible,button:focus-visible{ outline:2px solid var(--gu-gold); outline-
 /* ---------------------------------------------------------------
    Footer
    --------------------------------------------------------------- */
-.footer{
+.footer{ border-top:1px solid var(--gu-line); }
+.footer-inner{
+  max-width:var(--gu-max-bar); margin-inline:auto; width:100%;
   display:flex; justify-content:space-between; align-items:center;
   flex-wrap:wrap; gap:24px;
-  border-top:1px solid var(--gu-line); padding:40px var(--gu-gutter);
+  padding:40px var(--gu-gutter);
 }
 .footer .wordmark{ font-size:17px; }
 .footer-meta{ font-size:14px; line-height:1.5; color:var(--gu-muted); }
@@ -352,12 +355,12 @@ a:focus-visible,button:focus-visible{ outline:2px solid var(--gu-gold); outline-
   .criteria .wrap,
   .contact .wrap{ grid-template-columns:1fr; gap:48px; }
   .founder .wrap{ grid-template-columns:1fr; gap:48px; }
-  .portrait,.portrait-placeholder{ width:100%; }
+  .portrait{ width:100%; }
   .h2{ font-size:34px; }
   .quote-line{ font-size:34px; }
   .hero{ padding:96px var(--gu-gutter) 80px; }
   .section{ padding:72px var(--gu-gutter); }
-  .footer{ justify-content:flex-start; gap:16px; }
+  .footer-inner{ justify-content:flex-start; gap:16px; }
 }
 @media (max-width:520px){
   .stats{ grid-template-columns:1fr; }
@@ -370,14 +373,16 @@ a:focus-visible,button:focus-visible{ outline:2px solid var(--gu-gold); outline-
 <body>
 
 <header class="header">
-  <a href="#top" class="wordmark">Go Upstream<span class="cursor">_</span></a>
-  <nav class="nav" aria-label="Primary">
-    <a href="#about">About</a>
-    <a href="#engagements">Engagements</a>
-    <a href="#looking-for">What we look for</a>
-    <a href="#founder">Founder</a>
-    <a href="#contact" class="is-contact">Contact</a>
-  </nav>
+  <div class="header-inner">
+    <a href="#top" class="wordmark">Go Upstream<span class="cursor">_</span></a>
+    <nav class="nav" aria-label="Primary">
+      <a href="#about">About</a>
+      <a href="#engagements">Engagements</a>
+      <a href="#looking-for">What we look for</a>
+      <a href="#founder">Founder</a>
+      <a href="#contact" class="is-contact">Contact</a>
+    </nav>
+  </div>
 </header>
 
 <main>
@@ -504,8 +509,10 @@ a:focus-visible,button:focus-visible{ outline:2px solid var(--gu-gold); outline-
   <!-- ========================== QUOTE BAND ======================== -->
   <section class="quote">
     <div class="quote-inner">
-      <div class="quote-line">We think in years, not quarters<span>_</span></div>
-      <div class="quote-attr">George Brontén · Founder &amp; Investor</div>
+      <div class="quote-content">
+        <div class="quote-line">We think in years, not quarters<span>_</span></div>
+        <div class="quote-attr">George Brontén · Founder &amp; Investor</div>
+      </div>
     </div>
   </section>
 
@@ -514,17 +521,9 @@ a:focus-visible,button:focus-visible{ outline:2px solid var(--gu-gold); outline-
     <div class="wrap">
       <div class="founder-aside">
 
-        <!-- ▼▼▼ PORTRAIT PLACEHOLDER — REPLACE ▼▼▼
-             Waiting on a photo of George: 3:4 portrait, warm light,
-             dark background. Save it as assets/george-bronten.jpg,
-             then delete the <div class="portrait-placeholder"> below
-             and uncomment the <img> on the next line.
-        <img class="portrait" src="assets/george-bronten.jpg" alt="George Brontén" width="360" height="440">
-             ▲▲▲ PORTRAIT PLACEHOLDER — REPLACE ▲▲▲ -->
-        <div class="portrait-placeholder" role="img" aria-label="Placeholder for a portrait of George Brontén">
-          <span>Portrait of George Brontén</span>
-          <span>3:4 · warm light · dark background</span>
-        </div>
+        <!-- ▼ Portrait — assets/george-bronten.png, a transparent circular
+             PNG so the page's ink shows through. No background, no tint. -->
+        <img class="portrait" src="assets/george-bronten.png" alt="George Brontén" width="360" height="440">
 
         <div class="stack" style="gap:3px">
           <div class="founder-name">George Brontén</div>
@@ -569,9 +568,11 @@ a:focus-visible,button:focus-visible{ outline:2px solid var(--gu-gold); outline-
 </main>
 
 <footer class="footer">
-  <div class="wordmark">Go Upstream<span class="cursor">_</span></div>
-  <div class="footer-meta">© 2026 Go Upstream AB · Stockholm, Sweden</div>
-  <button type="button" class="footer-link" onclick="document.getElementById('privacy-modal').showModal()">Privacy &amp; cookies</button>
+  <div class="footer-inner">
+    <div class="wordmark">Go Upstream<span class="cursor">_</span></div>
+    <div class="footer-meta">© 2026 Go Upstream AB · Stockholm, Sweden</div>
+    <button type="button" class="footer-link" onclick="document.getElementById('privacy-modal').showModal()">Privacy &amp; cookies</button>
+  </div>
 </footer>
 
 <!-- ▼ PRIVACY — opens as a modal from the footer link.
