@@ -114,7 +114,23 @@ Retention risk cuts both ways: losing Anders now would be catastrophic. Pair the
 
 ---
 
-## 7. The money: expansion, pricing, and the path to profit
+## 7. The direct motion: fix the sales math before adding heads
+
+*(Added July 2026. Current state: Henrik has hired one salesperson and a sales manager in Sweden, with one more Swedish salesperson planned. The US team — a senior sales leader, two senior FTEs, one junior — is at 27–49% of quota over the trailing 365 days. The best performer, in Sweden, is at 79%.)*
+
+**When everyone misses quota, the problem is almost never the salespeople.** Every rep in both countries has been under quota for a full year. That pattern has exactly three possible causes, and the response differs completely by cause: **(a) the pipeline doesn't exist** — a demand problem that more closers make worse, since new hires split the same lead flow; **(b) the pipeline doesn't convert** — positioning, product gaps (§5's churn drivers cut win rates on new deals too), or process; **(c) the quota is fiction** — set from the budget's needs rather than bottom-up pipeline math. Hiring ahead of this diagnosis scales the miss, not the sales.
+
+**Run the diagnostic in Membrain itself — 30 days.** Pipeline coverage per rep (who actually carries 3–4× quota in qualified pipeline?), win rate by stage and region, cycle length, ACV, lead-source mix. Dogfooding is both the operational answer and, if it works, a marketing story; if the platform can't diagnose its own sales team, that's an equally valuable product finding.
+
+**The US team is the sharpest issue — and possibly the profitability lever.** Four US sales FTEs likely cost $700k–1M+ fully loaded and deliver 27–49% of quota. Two questions before any conclusion: what has the senior sales leader been managing while the entire team sat under 50% for a year, and what is the team's pipeline source? Cold outbound with a weak brand in the noisiest CRM market on earth produces exactly these numbers regardless of talent. Likely-right move: restructure to the one or two provably best people, pointed at inbound and at pipeline from George's US-heavy audience (blog, book) — the demand engine the US team should be harvesting and apparently isn't. Savings fund a developer *and* demand generation. Note: Stockholm afternoons overlap US East Coast mornings; the US East Coast can be sold from Sweden while the field team question settles.
+
+**Sweden: right direction, verify before the third hire.** Home-brand advantage and lower cost argue for it, but confirm per-rep pipeline in Sweden supports another head — the 79% performer's number may be built on brand and founder-network deals that don't multiply with headcount. And ask whether 79% is underperformance at all, or what a realistic quota looks like: rebuild quotas bottom-up from pipeline math everywhere.
+
+**The sequencing tension, named plainly:** this spending competes with the engineering rebuild (§6). Churn from missing AI capability is a leaky bucket; bookings capacity poured into it is wasted, and new reps will be selling into the same visible product gaps. If the US restructure funds both the Swedish hires and developers, the plan is coherent. If sales hiring comes *instead of* engineering hiring, the sequencing is backwards — an owner-level conversation for this month.
+
+---
+
+## 8. The money: expansion, pricing, and the path to profit
 
 With 200 customers, growth math favors the installed base before new logos:
 
@@ -126,7 +142,7 @@ With 200 customers, growth math favors the installed base before new logos:
 
 ---
 
-## 8. What I'd put on Henrik's desk: the first 90 days
+## 9. What I'd put on Henrik's desk: the first 90 days
 
 *(Reordered July 2026 for the churn and engineering-capacity situation.)*
 
@@ -135,6 +151,7 @@ With 200 customers, growth math favors the installed base before new logos:
 3. **MCP server beta** — scoped, built without any of the contested practices if need be; 3–5 design partners recruited from the churn-risk list; public roadmap announcement with a real date. (Weeks 2–10)
 4. **Engineering rebuild** — open 2–3 developer roles (or senior contractors for the MCP build); Anders retention package and role-evolution conversation. (Weeks 1–8)
 5. **Churn triage** — call every account that has raised AI capability or build-your-own; map who is savable with the MCP beta and roadmap. Feed this into the win/loss work: what did the leavers actually build? (Weeks 1–6)
+5b. **Sales diagnostic in Membrain (§7)** — pipeline coverage, win rate, cycle, ACV, lead source per rep and region; rebuild quotas bottom-up; pause the third Swedish sales hire and decide the US restructure on the evidence. (Weeks 1–5, before further sales hiring)
 6. **Unit-economics truth pack** — NRR, churn, CAC by channel, module penetration, usage quartiles. One page. (Weeks 1–4)
 7. **Positioning freeze** — adopt the complex-B2B-sales-execution statement, rewrite homepage and comparison pages, stop the category search. (Weeks 2–8)
 8. **Partner triage (maintenance only)** — move the dormant long tail to the no-touch community tier to free capacity; keep active partners warm; defer all certified-tier investment. (Weeks 4–12)
@@ -142,7 +159,7 @@ With 200 customers, growth math favors the installed base before new logos:
 
 ---
 
-## 9. Risks and honest counterpoints
+## 10. Risks and honest counterpoints
 
 - **Key-person risk, both directions.** Anders leaving is catastrophic (sole developer, total codebase knowledge); Anders staying while blocking the AI roadmap is slow-motion catastrophic. The §6 process — unbundle the decisions, gatekeeper role, retention package, governance backstop — is designed to avoid both. Document/transfer critical system knowledge as part of the engineering rebuild regardless of how the AI-tooling question lands.
 
