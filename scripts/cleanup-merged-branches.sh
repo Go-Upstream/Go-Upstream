@@ -11,8 +11,14 @@
 #
 # A branch counts as merged if either:
 #   a) its commits are ancestors of the default branch (regular merge), or
-#   b) the GitHub CLI (gh) is installed and reports a merged pull request for
-#      it — this also catches squash- and rebase-merged branches.
+#   b) the GitHub API reports a merged pull request for it — this also catches
+#      squash- and rebase-merged branches, which (a) cannot see.
+#
+# Check (b) needs API access, from either of these — no install required for
+# the second one:
+#   - the GitHub CLI (gh), logged in; or
+#   - a token in $GITHUB_TOKEN (or $GH_TOKEN), used via curl:
+#       GITHUB_TOKEN=ghp_xxx ./scripts/cleanup-merged-branches.sh
 #
 # Override the defaults with env vars: REMOTE=origin PREFIX=claude/
 
@@ -31,12 +37,36 @@ git fetch --prune "$REMOTE" \
   "+refs/heads/$DEFAULT:refs/remotes/$REMOTE/$DEFAULT" \
   "+refs/heads/${PREFIX}*:refs/remotes/$REMOTE/${PREFIX}*" >/dev/null 2>&1
 
-HAVE_GH=false
+SLUG=$(git remote get-url "$REMOTE" | sed -E 's#^.*github\.com[:/]##; s#\.git$##')
+TOKEN="${GITHUB_TOKEN:-${GH_TOKEN:-}}"
+
 if command -v gh >/dev/null 2>&1 && gh auth status >/dev/null 2>&1; then
-  HAVE_GH=true
+  API_MODE=gh
+elif [[ -n "$TOKEN" ]]; then
+  API_MODE=curl
 else
-  echo "note: GitHub CLI (gh) not logged in — squash-merged branches will not be detected." >&2
+  API_MODE=none
+  echo "note: no GitHub API access (no gh login, no \$GITHUB_TOKEN) —" >&2
+  echo "      squash-merged branches will not be detected." >&2
 fi
+
+# Echoes a reason when the branch has a merged pull request, nothing otherwise.
+merged_via_pr() {
+  local br="$1"
+  case "$API_MODE" in
+    gh)
+      local n
+      n=$(gh pr list --head "$br" --state merged --json number --jq 'length' 2>/dev/null || echo 0)
+      [[ "$n" -gt 0 ]] && echo "merged via pull request (squash/rebase)"
+      ;;
+    curl)
+      curl -fsS -H "Authorization: Bearer $TOKEN" \
+        -H "Accept: application/vnd.github+json" \
+        "https://api.github.com/repos/$SLUG/pulls?head=${SLUG%%/*}:$br&state=closed&per_page=100" 2>/dev/null \
+        | grep -q '"merged_at": *"' && echo "merged via pull request (squash/rebase)"
+      ;;
+  esac
+}
 
 DELETABLE=""
 COUNT=0
@@ -44,9 +74,8 @@ for BR in $(git for-each-ref --format='%(refname:strip=3)' "refs/remotes/$REMOTE
   REASON=""
   if git merge-base --is-ancestor "refs/remotes/$REMOTE/$BR" "refs/remotes/$REMOTE/$DEFAULT"; then
     REASON="merged (ancestor of $DEFAULT)"
-  elif $HAVE_GH; then
-    MERGED_PRS=$(gh pr list --head "$BR" --state merged --json number --jq 'length' 2>/dev/null || echo 0)
-    [[ "$MERGED_PRS" -gt 0 ]] && REASON="merged via pull request (squash/rebase)"
+  else
+    REASON=$(merged_via_pr "$BR" || true)
   fi
   if [[ -n "$REASON" ]]; then
     DELETABLE="$DELETABLE $BR"
