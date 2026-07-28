@@ -48,6 +48,7 @@ Practical moves:
 - Freeze the label debate. Pick "the sales execution platform for complex B2B sales" (descriptor, not category) and leave it alone for five years.
 - Tighten the ICP in writing: 10–100 salespeople, sales cycle 3+ months, 5+ stakeholders per deal, and — the strongest signal — **already investing in a sales methodology or training partner**. That last criterion is the qualifying question that filters out everyone HubSpot serves better.
 - Rewrite the comparison pages around the enemy, not feature grids: "Salesforce needs $165+/user and add-ons to enforce a sales process; Membrain ships it at $69."
+- A second contrast line for the AI era, rooted in the operating philosophy (§12): the market sells automation and replacement; Membrain sells development and effectiveness — **"they automate activity; we develop effectiveness."**
 
 ---
 
@@ -220,6 +221,25 @@ Three disciplines keep the vision honest:
 1. **The path runs through the niche, not around it.** Earn the *revenue brain* for complex B2B sales first; "business brain" is the horizon, not the roadmap. The vision's biggest risk at this team size is justifying broadening before the niche is won — George's own phrasing ("for our niche B2B market") is the guardrail.
 2. **Vision as narrative now; category claim only when earned.** The positioning freeze (§3) stands — buyers budget for sales execution, not for brains. But "Why I named it Membrain" is superb founder narrative (blog essay, keynote, the opening of a next book): fourteen years of encoding *how* companies sell, just as AI made encoded judgment the scarcest asset in the stack. It makes the AI strategy read as inevitable rather than reactive.
 3. **Every near-term move should add a layer or deepen one.** MCP → judgment exposed; coach/Startpage → judgment delivered; encoding toolkit → procedural knowledge at scale; benchmarks → collective learning. Anything that adds no layer is suspect.
+
+---
+
+## 12. Operating philosophy: systems thinking and human development
+
+*(George's foundational beliefs, added late July 2026 — these are not side notes; the strategy above already runs on both, and they create two tensions worth naming.)*
+
+**Systems thinking** — understanding the company internally and how buyers decide, so product, sales, and marketing align. It is already this document's method, now explicit:
+
+- **The loops, named.** The *doom loop* to break: falling deal size → poor-fit customers → low adoption → churn → bookings pressure → lower deal bar → falling deal size (§7's ICP floor is the intervention). The *leaky bucket* that makes retention outrank acquisition (§5–6). The *flywheel* to start: encoded process → better AI judgment → visible wins → more usage → learning → better judgment (§11's learning layer).
+- **§7's core claim is systems thinking verbatim:** when everyone misses quota, fix the system before judging the people.
+- **The buyer side is a systems asset.** Complex B2B purchases are systems — actors, feedback, delays — and Membrain's stakeholder mapping models the purchase *as* a system rather than a linear funnel. Teaching sales leaders to see buying this way is differentiated content in George's voice that no automation vendor can credibly copy.
+
+**Human development** — an aversion to hire-and-fire (per *Stop Killing Deals*), "getting closer to the individual," the belief behind Elevate. In the AI era this is countercyclical differentiation: the market sells replacement (AI SDRs, autonomous agents, headcount reduction); Membrain sells development — **"they automate activity; we develop effectiveness."** The coherence runs deep: the promoted-but-untrained manager problem (§5) is itself a human-development failure at the customer — the deepest pain point, the philosophy, and the product are the same statement. And "closer to the individual" gives the Business Brain's learning layer its proper object: learn each *person* — this rep's stalling pattern, this manager's blind spot — not just the process. It also answers the question every prospect will soon ask ("why not let AI replace half the sales team?"): because in complex B2B, trust between humans decides, and the winners will be companies whose people got better while everyone else's got automated into sameness. Philosophy as product architecture: this is *why* Membrain's AI is a coach, not a replacement.
+
+**The two tensions, named honestly:**
+
+1. **The US sales team vs. the hire-and-fire aversion.** The philosophy, applied in the right order, is what §7 already prescribes: diagnose and fix the system (demand, positioning, quotas) before judging the people — that *is* the anti-hire-and-fire position. But it cuts both ways: leaving people to miss quota for a year in a system nobody fixed is its own unkindness; sustained public failure develops no one. If the system is fixed and fit is still absent, an honest, well-supported role change is consistent with developing humans. The philosophy raises the bar for *how* and *in what order* — it must never become the reason hard calls aren't made, because at current unit economics, avoidance eventually forces far harsher decisions on all 28 people.
+2. **Anders.** §6's design — gatekeeper role, retention package, chief-architect path — is "getting closer to the individual" applied to the company's own bus factor. The philosophy strengthens the governance backstop rather than softening it: developing Anders means a real growth path in an AI-era engineering organization, not preserving a veto that isolates them.
 
 ---
 
