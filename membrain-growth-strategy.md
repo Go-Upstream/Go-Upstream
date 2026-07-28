@@ -53,6 +53,8 @@ Practical moves:
 
 ## 4. Channels: what fourteen years of partner data actually says
 
+**Decision update (July 2026): Henrik has decided to lower partner focus in favor of the direct sales motion. This section's analysis stands, but its investment items are deferred.** What survives immediately is only what *frees* capacity: the triage (long tail to a no-touch community tier, zero partner-manager time) and keeping the handful of genuinely active partners warm. The certified-tier build-out — console, global recruiting, front-door redesign — goes on the shelf until the direct motion and the engineering rebuild (§6) are funded. The direct motion described at the end of this section is now the primary growth engine and deserves its own working session.
+
 *(Revised after reviewing the real numbers: 119 partners globally, most of whom have never referred a single client. Years of effort invested. The best partners are tech-savvy firms who want to scale and ask how Membrain fits that; the majority are lifestyle consultancies billing substantial service fees who shy away from technology. The 10–30% license commission does not motivate them.)*
 
 That record is not an underperforming channel — it is a **disproven mechanism**, and the strategy has to say so. The economics never worked from the partner's side: a boutique trainer with two Membrain-fit clients at 20 seats each refers ~$33k ARR and earns ~$6.6k/year at 20% — less than two workshop days — while carrying asymmetric risk (a bad software rollout damages the client relationship their livelihood depends on, and behavior-tracking software can just as easily reveal that their training *didn't* stick). A rational lifestyle consultant does exactly what most of the 119 have done: nothing. No commission percentage fixes this; license commission is the wrong currency entirely.
@@ -79,12 +81,14 @@ Geographic note: this also changes the expansion logic. Partners were meant to b
 
 ## 5. AI: turn the build-your-own threat into the wedge
 
+**Urgency update (July 2026): this is no longer a strategy chapter — it is the active churn driver.** Customers are leaving over missing AI capability, and the most-requested item is specific: **an MCP server connecting Membrain to Claude and ChatGPT.** The customers churning are handing over the retention spec by name. Sequencing below reflects that: MCP first, coach second.
+
 The observed threat — lightly-engaged customers building their own apps — is a symptom worth reading precisely: the platform's value isn't reaching them where they work, and generic AI has made "good enough" tooling cheap. Two responses fail: ignoring it, and bolting on generic AI features (summaries, email drafting) that HubSpot/Salesforce ship faster and cheaper.
 
 The response that fits Membrain's thesis:
 
 1. **The AI sales coach, not the AI scribe.** Everyone's AI writes emails. Membrain's AI should do what only Membrain can: coach against the customer's *own encoded methodology* and deal history. Automated deal reviews ("this deal is missing an economic buyer; your process says..."), pipeline-risk calls a sales manager would make, coaching prompts for 1:1s. This is defensible because it requires the methodology + process + stakeholder data that lives only in Membrain.
-2. **Become the platform agents talk to, not the one they route around.** Ship a first-class API and an MCP server so customers' own AI agents and internal apps read/write Membrain instead of replacing it. If customers are going to build, make Membrain the system of record and judgment they build *on*. Charge for it at the platform tier.
+2. **Become the platform agents talk to, not the one they route around — and ship this FIRST.** An MCP server so customers' own Claude/ChatGPT agents and internal apps read/write Membrain instead of replacing it. If customers are going to build, make Membrain the system of record and judgment they build *on* — it converts build-your-own energy from exit path into lock-in. Critically, an MCP server is a thin adapter over the existing API: weeks of work, not quarters, requiring neither LLM-assisted development nor any vendor access to Membrain source (see §6). Execution: recruit 3–5 design partners *from the churn-risk list* for a beta; announce the roadmap publicly with a real date (an announcement buys one stay of execution — only delivery buys the second). Price it into a platform tier later; today it is a retention tool, not a revenue line.
 3. **The data moat.** Benchmark data across customers and engagements (the "State of B2B Sales" asset) becomes more valuable as AI needs grounding. Annual benchmark report → marketing; benchmarks inside the product ("your win rate at this stage vs. peer median") → retention.
 4. **The narrative.** AI makes average selling cheap and ubiquitous, which means differentiation shifts entirely to *how you sell* — Membrain's 14-year thesis, suddenly current. That is the marketing story for the next three years, and it's yours to tell before someone else does.
 
@@ -92,7 +96,25 @@ Kill or don't start: any AI feature a horizontal CRM will ship as a checkbox.
 
 ---
 
-## 6. The money: expansion, pricing, and the path to profit
+## 6. The engineering constraint: one developer, an existential roadmap
+
+*(Added July 2026: two developers have left; engineering is down to one developer — Anders, shareholder, with the company since the start — plus one QA person. Anders is opposed both to using LLMs in Membrain's own development and to giving AI companies access to the source code.)*
+
+**Three decisions are being conflated, and they must be separated on paper — a one-page decision memo for Henrik:**
+
+1. **Shipping customer-facing AI capability (the MCP server).** Requires *neither* LLM-assisted development *nor* vendor access to source code. It is an API adapter that lets customers connect their own Claude/ChatGPT to their own Membrain data; no AI company sees Membrain's code. Anders's stated objections, taken at face value, do not block the single item churning customers are asking for by name. This decoupling is the most important sentence in this section.
+2. **Using LLMs in Membrain's own development.** A productivity decision — negotiable, pilotable, and increasingly costly to refuse at a headcount of one, but separate from (1).
+3. **AI vendors touching Membrain source code.** A policy decision with substantive answers available: enterprise agreements with zero-data-retention and contractual no-training terms, and pilots scoped to non-crown-jewel code. The MCP server itself is the perfect pilot surface — new, isolated, low-risk.
+
+**The capacity emergency outranks the roadmap debate.** One developer plus one QA for a 200-customer production SaaS is bus-factor one — a single resignation or illness from being unable to operate, independent of any AI question. With 28 on payroll, the company is overweight in non-engineering roles relative to what the strategy now demands. **Rebuilding engineering to 3–4 developers is the top spending priority**, ahead of marketing investment in the direct motion — demand generation for a product that cannot ship its retention roadmap is wasted money. Stockholm's market can staff it; senior contractors can carry the MCP build specifically if hiring is slow.
+
+**On Anders: respect the person, don't grant the veto.** Fourteen years and sole custody of the codebase earn a dignified, evidence-based process, not an override. Meet the source-code concern with substance (enterprise terms, scoped pilots), and make Anders the *gatekeeper* rather than the blocker: every AI-assisted line passes their review, they set the quality bar, they own architecture. That is a control point, not a concession. The governance backstop belongs to the majority owner, not the CEO alone: a company in this position cannot carry a single-person veto on its survival strategy when that person is also its bus factor. If a fair pilot still ends in absolute refusal, that becomes an ownership-level conversation about role — held with the respect the years have earned, but held. The worst outcome is not disagreement; it is a year of polite deadlock while churn compounds.
+
+Retention risk cuts both ways: losing Anders now would be catastrophic. Pair the process above with an explicit retention package and a clearly attractive role evolution (chief architect / quality owner of a growing team), so the message is unambiguously "we're building around you," not "we're building past you."
+
+---
+
+## 7. The money: expansion, pricing, and the path to profit
 
 With 200 customers, growth math favors the installed base before new logos:
 
@@ -104,19 +126,25 @@ With 200 customers, growth math favors the installed base before new logos:
 
 ---
 
-## 7. What I'd put on Henrik's desk: the first 90 days
+## 8. What I'd put on Henrik's desk: the first 90 days
 
-1. **Unit-economics truth pack** — NRR, churn, CAC by channel, module penetration, usage quartiles. One page. (Weeks 1–4)
-2. **Win/loss on the last 50 decisions** (won, lost, churned) — especially: what did the build-your-own customers actually build, and why? (Weeks 1–6)
-3. **Positioning freeze** — adopt the complex-B2B-sales-execution statement, rewrite homepage and comparison pages, stop the category search. (Weeks 2–8)
-4. **Partner triage** — rank all 119 partners by referrals in the last 24 months; invite the top ~10–15 into the certified tier (partner console + marketplace terms), move the rest to the no-touch community tier, and reallocate the freed partner-management capacity to the direct/community motion. (Weeks 4–12)
-5. **AI roadmap decision** — commit to coach + methodology encoding toolkit + API/MCP + benchmarks; explicitly kill generic-AI feature work. Prototype the encoding toolkit with one certified partner's actual playbooks as the first proof. (Weeks 4–8)
-6. **Pricing test** — new top tier / platform fee on the next 20 deals and renewals. (Weeks 6–12)
-7. **Owner alignment** — you, Henrik, key employees, angels agree on Path A and the profitability deadline, in writing. (Week 1 — this is actually first.)
+*(Reordered July 2026 for the churn and engineering-capacity situation.)*
+
+1. **Owner alignment** — George, Henrik, key employees (including Anders), angels agree on Path A, the profitability deadline, and the three-way unbundling in §6, in writing. (Week 1)
+2. **The §6 decision memo** — one page separating MCP-shipping from LLM-assisted development from vendor code access; agree it with Anders. (Weeks 1–2)
+3. **MCP server beta** — scoped, built without any of the contested practices if need be; 3–5 design partners recruited from the churn-risk list; public roadmap announcement with a real date. (Weeks 2–10)
+4. **Engineering rebuild** — open 2–3 developer roles (or senior contractors for the MCP build); Anders retention package and role-evolution conversation. (Weeks 1–8)
+5. **Churn triage** — call every account that has raised AI capability or build-your-own; map who is savable with the MCP beta and roadmap. Feed this into the win/loss work: what did the leavers actually build? (Weeks 1–6)
+6. **Unit-economics truth pack** — NRR, churn, CAC by channel, module penetration, usage quartiles. One page. (Weeks 1–4)
+7. **Positioning freeze** — adopt the complex-B2B-sales-execution statement, rewrite homepage and comparison pages, stop the category search. (Weeks 2–8)
+8. **Partner triage (maintenance only)** — move the dormant long tail to the no-touch community tier to free capacity; keep active partners warm; defer all certified-tier investment. (Weeks 4–12)
+9. **Pricing test** — new top tier / platform fee on the next 20 deals and renewals; sequence after the MCP beta gives at-risk accounts a reason to stay. (Weeks 8–12)
 
 ---
 
-## 8. Risks and honest counterpoints
+## 9. Risks and honest counterpoints
+
+- **Key-person risk, both directions.** Anders leaving is catastrophic (sole developer, total codebase knowledge); Anders staying while blocking the AI roadmap is slow-motion catastrophic. The §6 process — unbundle the decisions, gatekeeper role, retention package, governance backstop — is designed to avoid both. Document/transfer critical system knowledge as part of the engineering rebuild regardless of how the AI-tooling question lands.
 
 - **The certified tier may still disappoint.** Fourteen years of partner effort produced 119 mostly-dormant relationships; the concentrated bet could fail the same way if selection is by enthusiasm rather than evidence. Gate it hard: invitation requires demonstrated referrals or clients already migrating onto Membrain, and the tier gets 12 months to source real pipeline before its investment is re-examined. The direct motion must never depend on it.
 - **Partner-console build cost.** A multi-client console is a real product investment competing with the AI roadmap for the same small team. Sequence: validate with 2–3 design partners on manual workarounds before committing engineering. (The encoding toolkit is different — it *is* the AI roadmap, shared between the coach and the partner motion, so it doesn't compete for a separate budget.)
