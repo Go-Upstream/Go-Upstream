@@ -199,4 +199,28 @@ With 200 customers, growth math favors the installed base before new logos:
 
 ---
 
+## 11. The north star: the Business Brain
+
+*(George's long-term vision, added late July 2026.)* Membrain becomes the **"Business Brain" for its niche B2B market** — a vision already encoded in the name: most systems have *memory* (they store information) but lack *context* and *a way of doing things*. Named in 2012, this turns out to be exactly the thesis of the agent era (§5): systems of record store what happened; a brain knows how to act. What survives AI commoditization is not the interface but the judgment.
+
+The metaphor is a product architecture, not a tagline — a brain has layers, each mapping to something concrete:
+
+| Layer | Meaning | Status |
+|---|---|---|
+| Memory | Records | Every CRM has this — commodity |
+| Context | Relationships, stakeholder maps, history | Membrain partly owns this |
+| Procedural knowledge | "The way we do things" — encoded methodology | Membrain's core today |
+| Judgment | Verdicts — MCP judgment tools, the coach, the Startpage | The current roadmap (§5) |
+| **Learning** | Outcomes flow back into guidance; the brain updates | **The layer to build — where the moat compounds** |
+
+The learning layer is the long game: win/loss outcomes refining the process, the coach getting sharper about *this* company every closed quarter, cross-customer benchmarks as the collective loop. A brain that doesn't update isn't a brain — and once it does, leaving Membrain means lobotomizing yourself.
+
+Three disciplines keep the vision honest:
+
+1. **The path runs through the niche, not around it.** Earn the *revenue brain* for complex B2B sales first; "business brain" is the horizon, not the roadmap. The vision's biggest risk at this team size is justifying broadening before the niche is won — George's own phrasing ("for our niche B2B market") is the guardrail.
+2. **Vision as narrative now; category claim only when earned.** The positioning freeze (§3) stands — buyers budget for sales execution, not for brains. But "Why I named it Membrain" is superb founder narrative (blog essay, keynote, the opening of a next book): fourteen years of encoding *how* companies sell, just as AI made encoded judgment the scarcest asset in the stack. It makes the AI strategy read as inevitable rather than reactive.
+3. **Every near-term move should add a layer or deepen one.** MCP → judgment exposed; coach/Startpage → judgment delivered; encoding toolkit → procedural knowledge at scale; benchmarks → collective learning. Anything that adds no layer is suspect.
+
+---
+
 *Sources consulted: membrain.com (current positioning and product pages), G2 comparisons vs. HubSpot Sales Hub and Salesforce Sales Cloud, Capterra, and third-party pricing/review roundups (prospeo.io, selecthub.com, softabase.com).*
