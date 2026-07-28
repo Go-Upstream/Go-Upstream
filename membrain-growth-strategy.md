@@ -51,18 +51,24 @@ Practical moves:
 
 ---
 
-## 4. The channel that matches the positioning: own the sales-training ecosystem
+## 4. Channels: what fourteen years of partner data actually says
 
-Membrain's most defensible asset outside the product is its standing with the sales-effectiveness community — trainers, methodology owners, consultants (the OMG/Sandler-adjacent world), plus your decade of blog equity and *Stop Killing Deals*. This ecosystem has a structural problem that is Membrain's opportunity: **training IP evaporates**. Workshops end, behavior reverts, and the trainer has no recurring revenue and no proof of impact.
+*(Revised after reviewing the real numbers: 119 partners globally, most of whom have never referred a single client. Years of effort invested. The best partners are tech-savvy firms who want to scale and ask how Membrain fits that; the majority are lifestyle consultancies billing substantial service fees who shy away from technology. The 10–30% license commission does not motivate them.)*
 
-The play: make Membrain the **delivery and reinforcement platform for sales methodologies** — the place where a trainer's IP lives inside the client's daily workflow.
+That record is not an underperforming channel — it is a **disproven mechanism**, and the strategy has to say so. The economics never worked from the partner's side: a boutique trainer with two Membrain-fit clients at 20 seats each refers ~$33k ARR and earns ~$6.6k/year at 20% — less than two workshop days — while carrying asymmetric risk (a bad software rollout damages the client relationship their livelihood depends on, and behavior-tracking software can just as easily reveal that their training *didn't* stick). A rational lifestyle consultant does exactly what most of the 119 have done: nothing. No commission percentage fixes this; license commission is the wrong currency entirely.
 
-- **Partner program with real economics.** Revenue share on referred and embedded seats, so consultants have a recurring-income reason to lead with Membrain. Target: a majority of new logos partner-sourced within 24 months (partner-sourced CAC is a fraction of direct).
-- **Methodology marketplace.** Productize the ability to encode a partner's process/playbooks in Membrain (Elevate is the seed of this). Partners get a branded, sellable digital product; Membrain gets distribution and lock-in.
-- **Proof-of-impact reporting for partners.** Dashboards a trainer shows their client: behavior adoption, win-rate delta. This makes Membrain the trainer's ROI evidence — they can't afford to remove it.
-- **Founder-brand air cover.** Ten years of membrain.com/blog plus the book is a real audience. Convert it from content archive into a *community* — a sales-effectiveness community (podcast, annual benchmark report from the "12,000 engagements" data, practitioner network). You personally, no longer operational, are perfectly cast as evangelist-in-chief while Henrik runs the company. Community is a channel HubSpot cannot buy into this niche.
+The rework — stop running one partner program, run two different things:
 
-Why this over geographic expansion: with 28 people, opening DACH or new regions adds cost and complexity for uncertain return. Partners *are* the geographic strategy — a methodology partner in Germany brings Membrain along at near-zero marginal cost.
+- **Certified tier: a concentrated bet on ~10–15 firms, invite-only.** Select on demonstrated referrals and on the tell — the ones asking "how does Membrain fit into scaling *my* business?" Answer that question literally with product:
+  - **A partner console** — one multi-client view to run their programs, coach, and benchmark across every client on Membrain. Membrain becomes how they scale delivery, so each new client of theirs lands on the platform by default. This inverts the dependency.
+  - **Marketplace economics that favor the partner** — their methodology packaged as a subscription product on top of Membrain where *they* keep the majority (70–80%). Recurring revenue on their own IP, not a commission crumb on ours.
+  - **Retention proof for *their* contracts** — reporting framed as "your program is still driving behavior at this client eight months on," i.e., the evidence that gets the *partner's* renewal signed.
+- **Everyone else: community, not channel.** Directory listing, co-marketing, podcast/webinar slots, an affiliate link — and zero partner-manager time. Lifestyle trainers will do visibility-for-free collaboration even though they will never sell. Reclaim the management cost and put it into the direct motion.
+- **Recruit a different species going forward.** Boutique trainers have few clients and no tech appetite. Two adjacent types are structurally better: **fractional sales-leader networks** (tech-savvy, operationally embedded, and they choose the stack for many clients at once) and **assessment firms** (an OMG-style evaluation manufactures the "our process is broken" moment Membrain converts — trigger events at scale on someone else's marketing budget).
+
+**The strategic goal survives; the proxy doesn't.** The insight behind the partner thesis was always the ICP signal: companies actively investing in how they sell. If partners won't transmit, go direct at the same trigger events — new VP of Sales hired, training engagement started, methodology rollout, sales-kickoff season — through assets Membrain controls: ten years of blog equity, *Stop Killing Deals*, a practitioner community, the annual benchmark report, and targeted outbound. George as evangelist-in-chief, Henrik as operator. This promotes the founder-brand/community motion from "air cover" to **primary acquisition engine**, with the certified-partner bet as a concentrated secondary.
+
+Geographic note: this also changes the expansion logic. Partners were meant to be the zero-cost geographic strategy; with a mostly-dormant network, new regions should wait until the direct motion and the certified tier prove out in existing markets.
 
 ---
 
@@ -98,7 +104,7 @@ With 200 customers, growth math favors the installed base before new logos:
 1. **Unit-economics truth pack** — NRR, churn, CAC by channel, module penetration, usage quartiles. One page. (Weeks 1–4)
 2. **Win/loss on the last 50 decisions** (won, lost, churned) — especially: what did the build-your-own customers actually build, and why? (Weeks 1–6)
 3. **Positioning freeze** — adopt the complex-B2B-sales-execution statement, rewrite homepage and comparison pages, stop the category search. (Weeks 2–8)
-4. **Partner economics decision** — design the revenue-share program and marketplace roadmap; personally recruit the first 5 lighthouse partners from your network. (Weeks 4–12)
+4. **Partner triage** — rank all 119 partners by referrals in the last 24 months; invite the top ~10–15 into the certified tier (partner console + marketplace terms), move the rest to the no-touch community tier, and reallocate the freed partner-management capacity to the direct/community motion. (Weeks 4–12)
 5. **AI roadmap decision** — commit to coach + API/MCP + benchmarks; explicitly kill generic-AI feature work. (Weeks 4–8)
 6. **Pricing test** — new top tier / platform fee on the next 20 deals and renewals. (Weeks 6–12)
 7. **Owner alignment** — you, Henrik, key employees, angels agree on Path A and the profitability deadline, in writing. (Week 1 — this is actually first.)
@@ -107,7 +113,8 @@ With 200 customers, growth math favors the installed base before new logos:
 
 ## 8. Risks and honest counterpoints
 
-- **Partner channel concentration.** Trainers are small businesses; the ecosystem itself is being disrupted by AI. Mitigation: the marketplace makes Membrain the ecosystem's *anchor*, not its dependent — and partner IP encoded in the platform survives the partner.
+- **The certified tier may still disappoint.** Fourteen years of partner effort produced 119 mostly-dormant relationships; the concentrated bet could fail the same way if selection is by enthusiasm rather than evidence. Gate it hard: invitation requires demonstrated referrals or clients already migrating onto Membrain, and the tier gets 12 months to source real pipeline before its investment is re-examined. The direct motion must never depend on it.
+- **Partner-console build cost.** A multi-client console and marketplace are real product investments competing with the AI roadmap for the same small team. Sequence: validate with 2–3 design partners on manual workarounds before committing engineering.
 - **Repricing churn.** Raising prices on a not-yet-sticky segment can accelerate the exact churn you fear. Sequence: fix activation for the low-usage quartile *before* their renewals reprice.
 - **Founder gravity.** A strategy leaning on your brand must not recreate founder-dependence. The community and benchmark assets must belong to Membrain, with your voice as launch fuel.
 - **The uncomfortable scenario.** If NRR is well below 100% and the win/loss work says the niche is shrinking under AI, Path A's answer changes from "grow" to "harvest profitably and pursue Path C sooner." Better to learn that in Q3 2026 than after another unprofitable year.
