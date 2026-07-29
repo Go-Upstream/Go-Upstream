@@ -9,9 +9,13 @@
 <link rel="canonical" href="https://goupstream.se/">
 <meta name="theme-color" content="#191612">
 
-<!-- Favicon / app tile — the square mark: gold tile, ink "UP_" -->
+<!-- Favicon / app tile — the square mark: gold tile, ink "UP_".
+     favicon.ico sits at the site root because that is the path browsers
+     request on their own, before and regardless of these tags. -->
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
 <link rel="icon" type="image/png" sizes="512x512" href="assets/favicon-512.png">
-<link rel="apple-touch-icon" href="assets/favicon-512.png">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon-180.png">
 
 <!-- Open Graph / Twitter -->
 <meta property="og:type" content="website">
