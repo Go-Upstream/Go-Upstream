@@ -221,12 +221,17 @@ a:focus-visible,button:focus-visible{ outline:2px solid var(--gu-gold); outline-
    Engagements
    --------------------------------------------------------------- */
 .engagements .wrap{ display:flex; flex-direction:column; gap:36px; }
-.cards{ display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
+/* Six tracks, so a row can hold either three cards (span 2 each) or two
+   wide ones (span 3 each). Add card--wide to every card in a row of two;
+   the count per row has to come out to six either way. */
+.cards{ display:grid; grid-template-columns:repeat(6,1fr); gap:20px; }
 .card{
+  grid-column:span 2;
   display:flex; flex-direction:column; gap:12px;
   background:var(--gu-surface); border-left:2px solid var(--gu-bone);
   padding:30px; transition:background-color .12s linear;
 }
+.card--wide{ grid-column:span 3; }
 .card:hover{ background:var(--gu-surface-2); }
 .card--gold{ border-left-color:var(--gu-gold); }
 .card p{ flex:1; }
@@ -358,6 +363,8 @@ a:focus-visible,button:focus-visible{ outline:2px solid var(--gu-gold); outline-
   .about-cols{ grid-template-columns:1fr; gap:20px; }
   .stats{ grid-template-columns:repeat(2,1fr); column-gap:32px; row-gap:32px; }
   .cards{ grid-template-columns:1fr; }
+  .cards .card,
+  .cards .card--wide{ grid-column:auto; }
   .criteria .wrap,
   .contact .wrap{ grid-template-columns:1fr; gap:48px; }
   .founder .wrap{ grid-template-columns:1fr; gap:48px; }
@@ -398,7 +405,7 @@ a:focus-visible,button:focus-visible{ outline:2px solid var(--gu-gold); outline-
     <div class="wrap">
       <div class="eyebrow">Founder support &amp; angel investments</div>
       <h1>We help founders go upstream<span class="cursor cursor--blink">_</span></h1>
-      <p class="lead">Go Upstream AB, founded by <strong>George Brontén</strong>, helps entrepreneurs on their journey — as a <strong>thinking partner</strong> on strategy, product, and go-to-market — and sometimes as an <strong>angel investor</strong>. Our home turf is technology, first and foremost <strong>SaaS</strong>.</p>
+      <p class="lead">Go Upstream AB, founded by <strong>George Brontén</strong>, helps entrepreneurs on their journey: as a <strong>thinking partner</strong> on strategy, product, and go-to-market, and sometimes as an <strong>angel investor</strong>. Our home turf is technology, first and foremost <strong>SaaS</strong>.</p>
       <div class="btns">
         <a href="#contact" class="btn btn--primary">Start a conversation</a>
         <a href="#looking-for" class="btn btn--ghost">What we look for</a>
@@ -414,8 +421,8 @@ a:focus-visible,button:focus-visible{ outline:2px solid var(--gu-gold); outline-
         <h2 class="h2" style="max-width:28ch">25+ years of doing the work</h2>
       </div>
       <div class="about-cols">
-        <p class="body">Go Upstream is not a fund with a clock ticking. It is the personal company of George Brontén — a serial entrepreneur who has spent 25+ years building software companies from first line of code to profitable scale and exit — created to share that journey with other founders.</p>
-        <p class="body">What we bring is operating experience: product strategy, go-to-market for complex B2B sales, pricing, positioning, and the patience to build companies that last. When the fit is right, we also invest — but the partnership always comes first.</p>
+        <p class="body">Go Upstream is not a fund with a clock ticking. It is the personal company of George Brontén, a serial entrepreneur who has spent 25+ years building software companies from first line of code to profitable scale and exit. He created it to share that journey with other founders.</p>
+        <p class="body">What we bring is operating experience: product strategy, go-to-market for complex B2B sales, pricing, positioning, and the patience to build companies that last. When the fit is right, we also invest. But the partnership always comes first.</p>
       </div>
       <!-- ▼ Stats — update the numbers here -->
       <div class="stats">
@@ -447,25 +454,41 @@ a:focus-visible,button:focus-visible{ outline:2px solid var(--gu-gold); outline-
         <h2 class="h2" style="max-width:40ch">Companies and communities we're part of</h2>
       </div>
       <!-- ▼ Portfolio / engagements — add or edit cards here.
-           Use class="card card--gold" for the one gold-ruled card. -->
+           Use class="card card--gold" for the one gold-ruled card.
+           Row 1: the two companies George built, wide (card--wide).
+           Row 2: the other three, a third of the measure each. -->
       <div class="cards">
-        <div class="card card--gold">
-          <div class="label">Founder · Majority owner</div>
-          <h3 class="h3">Membrain</h3>
-          <p class="small">The B2B Growth Platform for companies where HOW you sell matters. Sales execution, coaching and CRM — used by clients in 80+ countries.</p>
-          <a class="card-link" href="https://www.membrain.com" target="_blank" rel="noopener">membrain.com →</a>
-        </div>
-        <div class="card">
+        <div class="card card--wide">
           <div class="label">Founder · Exited</div>
           <h3 class="h3">Upstream</h3>
           <p class="small">Software solutions for proactive, automated IT operations in the Nordics. Founded, scaled to 300+ business customers, and sold.</p>
           <a class="card-link" href="https://www.upstream.se" target="_blank" rel="noopener">upstream.se →</a>
         </div>
+        <div class="card card--wide card--gold">
+          <div class="label">Founder · Majority owner</div>
+          <h3 class="h3">Membrain</h3>
+          <p class="small">The B2B Growth Platform for companies where HOW you sell matters. Sales execution, coaching and CRM. Used by clients in 80+ countries.</p>
+          <a class="card-link" href="https://www.membrain.com" target="_blank" rel="noopener">membrain.com →</a>
+        </div>
         <div class="card">
           <div class="label">Ambassador member · Shareholder</div>
           <h3 class="h3">Founders Alliance</h3>
-          <p class="small">Sweden's leading network for entrepreneurs. George is an ambassador member and small shareholder — sharing their burning passion for entrepreneurship.</p>
+          <p class="small">Sweden's leading network for entrepreneurs. George is an ambassador member and small shareholder, sharing their burning passion for entrepreneurship.</p>
           <a class="card-link" href="https://www.foundersalliance.com" target="_blank" rel="noopener">foundersalliance.com →</a>
+        </div>
+        <!-- ▼ Helny — description drawn from helny.app -->
+        <div class="card">
+          <div class="label">Founder</div>
+          <h3 class="h3">Helny</h3>
+          <p class="small">A second-hand shop should sell things, not administer them. Snap a photo and Helny's AI does the rest: social media, auction sites, sales results.</p>
+          <a class="card-link" href="https://www.helny.app" target="_blank" rel="noopener">helny.app →</a>
+        </div>
+        <!-- ▼ ABKoll — description drawn from abkoll.se -->
+        <div class="card">
+          <div class="label">Founder</div>
+          <h3 class="h3">ABKoll</h3>
+          <p class="small">That nagging feeling. Was the annual report due? One day late costs 7,500 kr. We built ABKoll so you never wonder again, and stay on top of your dividends.</p>
+          <a class="card-link" href="https://www.abkoll.se" target="_blank" rel="noopener">abkoll.se →</a>
         </div>
       </div>
     </div>
@@ -477,14 +500,14 @@ a:focus-visible,button:focus-visible{ outline:2px solid var(--gu-gold); outline-
       <div class="criteria-intro">
         <div class="eyebrow">What we look for</div>
         <h2 class="h2">Founders who zoom out, then in</h2>
-        <p class="body">The founders we back can work at both altitudes: the whole system one moment, the single broken step the next. We partner selectively, mostly in Nordic B2B SaaS, at stages where operating experience makes a real difference — and when the fit is right, we invest as angels. If this sounds like you, we'd like to hear from you.</p>
+        <p class="body">The founders we back can work at both altitudes: the whole system one moment, the single broken step the next. We partner selectively, mostly in Nordic B2B SaaS, at stages where operating experience makes a real difference. When the fit is right, we invest as angels. If this sounds like you, we'd like to hear from you.</p>
       </div>
       <div class="criteria-list">
         <div class="criterion">
           <span class="criterion-num">01</span>
           <div class="criterion-body">
             <div class="criterion-title">B2B SaaS with recurring revenue</div>
-            <div class="criterion-text">Products that solve a painful, well-understood problem for business customers — ideally with early proof of willingness to pay.</div>
+            <div class="criterion-text">Products that solve a painful, well-understood problem for business customers, ideally with early proof of willingness to pay.</div>
           </div>
         </div>
         <div class="criterion">
@@ -505,7 +528,7 @@ a:focus-visible,button:focus-visible{ outline:2px solid var(--gu-gold); outline-
           <span class="criterion-num">04</span>
           <div class="criterion-body">
             <div class="criterion-title">A long-term mindset</div>
-            <div class="criterion-text">We think in years, not quarters — and we prefer partners who think the same way.</div>
+            <div class="criterion-text">We think in years, not quarters, and we prefer partners who think the same way.</div>
           </div>
         </div>
       </div>
@@ -555,14 +578,14 @@ a:focus-visible,button:focus-visible{ outline:2px solid var(--gu-gold); outline-
       <div class="contact-intro">
         <div class="eyebrow">Contact</div>
         <h2 class="h2">Start a conversation</h2>
-        <p class="body">Go Upstream is more than capital. We act as a thinking partner to founders — a sounding board on strategy, product, and go-to-market — and make angel investments in companies we believe in.</p>
+        <p class="body">Go Upstream is more than capital. We act as a thinking partner to founders: a sounding board on strategy, product, and go-to-market. And we make angel investments in companies we believe in.</p>
         <p class="body">If that resonates, reach out and tell us your <em>why</em>: the problem you can't stop thinking about, and the long-term vision you're building toward.</p>
       </div>
       <div class="contact-panel">
         <div class="label">Direct, no forms</div>
         <!-- ▼ Contact address -->
         <a class="contact-email" href="mailto:george@membrain.com">george@membrain.com<span class="cursor cursor--blink">_</span></a>
-        <div class="small">No contact form, no tracking, no analytics — this site collects nothing. Email reaches George directly.</div>
+        <div class="small">No contact form, no tracking, no analytics. This site collects nothing. Email reaches George directly.</div>
         <div class="contact-links">
           <a href="https://www.linkedin.com/in/georgebronten/" target="_blank" rel="noopener">LinkedIn →</a>
           <a href="https://www.membrain.com/blog" target="_blank" rel="noopener">Art &amp; Science of Complex Sales →</a>
