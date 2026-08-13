@@ -221,12 +221,18 @@ a:focus-visible,button:focus-visible{ outline:2px solid var(--gu-gold); outline-
    Engagements
    --------------------------------------------------------------- */
 .engagements .wrap{ display:flex; flex-direction:column; gap:36px; }
-.cards{ display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
+/* Six tracks, two per card — three cards to a row. The extra tracks exist
+   so a trailing row of two can widen to span three each and fill the
+   measure, instead of sitting left with a hole where the third would be. */
+.cards{ display:grid; grid-template-columns:repeat(6,1fr); gap:20px; }
 .card{
+  grid-column:span 2;
   display:flex; flex-direction:column; gap:12px;
   background:var(--gu-surface); border-left:2px solid var(--gu-bone);
   padding:30px; transition:background-color .12s linear;
 }
+.card:nth-child(3n+1):nth-last-child(2),
+.card:nth-child(3n+1):nth-last-child(2) ~ .card{ grid-column:span 3; }
 .card:hover{ background:var(--gu-surface-2); }
 .card--gold{ border-left-color:var(--gu-gold); }
 .card p{ flex:1; }
@@ -358,6 +364,9 @@ a:focus-visible,button:focus-visible{ outline:2px solid var(--gu-gold); outline-
   .about-cols{ grid-template-columns:1fr; gap:20px; }
   .stats{ grid-template-columns:repeat(2,1fr); column-gap:32px; row-gap:32px; }
   .cards{ grid-template-columns:1fr; }
+  .cards .card,
+  .cards .card:nth-child(3n+1):nth-last-child(2),
+  .cards .card:nth-child(3n+1):nth-last-child(2) ~ .card{ grid-column:auto; }
   .criteria .wrap,
   .contact .wrap{ grid-template-columns:1fr; gap:48px; }
   .founder .wrap{ grid-template-columns:1fr; gap:48px; }
@@ -447,7 +456,9 @@ a:focus-visible,button:focus-visible{ outline:2px solid var(--gu-gold); outline-
         <h2 class="h2" style="max-width:40ch">Companies and communities we're part of</h2>
       </div>
       <!-- ▼ Portfolio / engagements — add or edit cards here.
-           Use class="card card--gold" for the one gold-ruled card. -->
+           Use class="card card--gold" for the one gold-ruled card.
+           A trailing row of two widens to fill the measure, so the two
+           angel holdings sit together on their own row — see .cards. -->
       <div class="cards">
         <div class="card card--gold">
           <div class="label">Founder · Majority owner</div>
@@ -466,6 +477,22 @@ a:focus-visible,button:focus-visible{ outline:2px solid var(--gu-gold); outline-
           <h3 class="h3">Founders Alliance</h3>
           <p class="small">Sweden's leading network for entrepreneurs. George is an ambassador member and small shareholder — sharing their burning passion for entrepreneurship.</p>
           <a class="card-link" href="https://www.foundersalliance.com" target="_blank" rel="noopener">foundersalliance.com →</a>
+        </div>
+        <!-- ▼ ABKoll — description drawn from abkoll.se. Confirm the role
+             line ("Angel investment · Shareholder") before this goes live. -->
+        <div class="card">
+          <div class="label">Angel investment · Shareholder</div>
+          <h3 class="h3">ABKoll</h3>
+          <p class="small">Keeps Swedish limited companies on top of their annual report. Deadlines are calculated from each company's financial year, and the reminders arrive long before Bolagsverket's late fees do.</p>
+          <a class="card-link" href="https://abkoll.se" target="_blank" rel="noopener">abkoll.se →</a>
+        </div>
+        <!-- ▼ Helny — PLACEHOLDER COPY. Replace the description, the role
+             line and the link before this goes live. -->
+        <div class="card">
+          <div class="label">Angel investment · Shareholder</div>
+          <h3 class="h3">Helny</h3>
+          <p class="small">One sentence on what Helny does, and one on who it does it for — the same shape as the cards above. Around 25–35 words sits best in this grid.</p>
+          <a class="card-link" href="https://helny.se" target="_blank" rel="noopener">helny.se →</a>
         </div>
       </div>
     </div>
